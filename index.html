@@ -1,0 +1,365 @@
+<html><head><base href="." /><meta charset="utf-8">
+    <title>Фон</title>
+    <style>
+    body {
+        margin: 0;
+        padding: 20px;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: linear-gradient(135deg, #f0f5ff 0%, #e6f0ff 100%);
+        overflow-x: hidden;
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+        position: relative;
+    }
+    
+    .content-container {
+        text-align: center;
+        width: 100%;
+        max-width: 600px;
+        margin-top: 0;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .content-container::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% + 10px);
+        height: calc(100% + 20px);
+        background-image: url('https://i.ibb.co/rmTj9ns/photo-2024-08-03-19-33-07.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.4;
+        filter: blur(3px);
+        z-index: -1;
+        border-radius: 20px;
+    }
+    
+    .back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        z-index: 2;
+    }
+    
+    .back-button:hover {
+        background-color: #0056b3;
+    }
+    
+    .image-container {
+        position: relative;
+        animation: float 3s ease-in-out infinite;
+        margin-bottom: 20px;
+    }
+    
+    .image-wrapper {
+        width: 200px;
+        margin: 0 auto;
+    }
+    
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    
+    .title {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .stats {
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 0 20px;
+        font-weight: bold;
+    }
+    
+    .description {
+        margin-bottom: 20px;
+        padding: 0 20px;
+        text-align: center;
+        font-weight: normal;
+    }
+    
+    .more-link {
+        display: inline-block;
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .more-link:hover {
+        color: #0056b3;
+    }
+    
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px 0;
+        flex-wrap: wrap;
+    }
+    
+    .dar-button {
+        padding: 10px 20px;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .dar-button:nth-of-type(1) {
+        background-color: #808080;
+    }
+    
+    .dar-button:nth-of-type(1):hover {
+        background-color: #666666;
+    }
+    
+    .dar-button:nth-of-type(2) {
+        background-color: #ffffff;
+        color: #000000;
+        border: 1px solid #ffd700;
+    }
+    
+    .dar-button:nth-of-type(2):hover {
+        background-color: #f0f0f0;
+    }
+    
+    .dar-button:nth-of-type(3) {
+        background-color: #ffd700;
+        color: #000000;
+    }
+    
+    .dar-button:nth-of-type(3):hover {
+        background-color: #ffed4a;
+    }
+    
+    .dar-button.active:nth-of-type(1) {
+        background-color: #666666;
+    }
+    
+    .dar-button.active:nth-of-type(2) {
+        background-color: #e6e6e6;
+    }
+    
+    .dar-button.active:nth-of-type(3) {
+        background-color: #ffc600;
+    }
+    
+    .dar-content {
+        display: none;
+        margin: 10px 20px;
+        padding: 15px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 5px;
+        text-align: left;
+    }
+    
+    .hide-link {
+        display: block;
+        text-align: center;
+        color: #6c757d;
+        text-decoration: none;
+        font-size: 14px;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+    
+    .hide-link:hover {
+        color: #495057;
+        text-decoration: underline;
+    }
+    
+    .practice-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        margin: 10px 0;
+    }
+    
+    .practice-button:hover {
+        background-color: #45a049;
+    }
+    
+    .practice-link {
+        color: #007bff;
+        text-decoration: none;
+    }
+    
+    .practice-link:hover {
+        text-decoration: underline;
+    }
+    
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+    
+    @media (max-width: 480px) {
+        body {
+            padding: 15px;
+        }
+        
+        .title {
+            font-size: 24px;
+        }
+        
+        .image-wrapper {
+            width: 150px;
+        }
+        
+        .back-button {
+            top: 15px;
+            left: 15px;
+            padding: 8px 16px;
+        }
+    
+        .button-container {
+            flex-direction: row;
+            gap: 5px;
+        }
+    
+        .dar-button {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+    }
+    </style>
+    </head>
+    <body>
+        <a href="https://miplix.github.io/glavnaya_dar/" class="back-button">Назад</a>
+        
+        <div class="content-container">
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="https://i.postimg.cc/FFwFsqjk/Fana.png" 
+                         alt="Фан арт персонажа" 
+                         width="200" 
+                         height="200">
+                </div>
+            </div>
+            
+            <div class="title">Старший дар Фана 2-7-9</div>
+            
+            <div class="button-container">
+                <button class="dar-button" onclick="toggleContent('sleeping')"><b>спящий</b></button>
+                <button class="dar-button" onclick="toggleContent('normal')"><b>активированный</b></button>
+                <button class="dar-button" onclick="toggleContent('activated')"><b>пробужденный</b></button>
+            </div>
+    
+            <div id="sleeping-content" class="dar-content">
+                Кощей. Застой. Консерватизм. Отказ от изменений<br>
+                Накопительство времени, воспоминаний, опыта
+                <a class="hide-link" onclick="hideContent('sleeping')">скрыть</a>
+            </div>
+            <div id="normal-content" class="dar-content">
+                Быстрые изменения.<br>
+                Способность очень быстро меняться, момент настоящего очень многогранен
+                <a class="hide-link" onclick="hideContent('normal')">скрыть</a>
+            </div>
+            <div id="activated-content" class="dar-content">
+                Горящий Феникс.<br>
+                Каждый миг меняется форма - сгорание дотла и возрождение заново
+                <a class="hide-link" onclick="hideContent('activated')">скрыть</a>
+            </div>
+            
+            <div class="stats">
+                Магия(Ма) - 2<br>
+                Жизнь(Жи) - 7<br>
+                Сила(Кун) - 9
+            </div>
+            
+            <div class="description">
+                Момент Здесь и Сейчас. Новое, обновление, перерождение<br>
+                Проявляется как стоп-кадр для каждого мгновения, где нет ни будущего ни прошлого - есть только здесь и сейчас<br>
+            </div>
+    
+            <div class="button-container">
+                <button class="dar-button practice-button" onclick="toggleContent('practice')">практика</button>
+            </div>
+            
+            <div id="practice-content" class="dar-content">
+                Попробуйте делать что-то по другому целый день - например есть другой рукой или назваться другим именем<br>
+                <a href="https://github.com/miplix/glavnaya_dar" class="practice-link">медитация</a>
+                <a class="hide-link" onclick="hideContent('practice')">скрыть</a>
+            </div>
+    
+            <a href="https://t.me/2178420785/25" class="more-link">больше о фана</a>
+        </div>
+    
+    <script>
+    window.toggleContent = function(type) {
+        const contentId = type + '-content';
+        const content = document.getElementById(contentId);
+        const button = document.querySelector(`[onclick="toggleContent('${type}')"]`);
+        const allContents = document.getElementsByClassName('dar-content');
+        const allButtons = document.getElementsByClassName('dar-button');
+    
+        // First hide all contents and remove active class from all buttons
+        for (let item of allContents) {
+            item.style.display = 'none';
+        }
+        for (let btn of allButtons) {
+            btn.classList.remove('active');
+        }
+    
+        // If the clicked content was already visible, we just hide it
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+            button.classList.remove('active');
+        } else {
+            // Otherwise show the new content and activate the button
+            content.style.display = 'block';
+            button.classList.add('active');
+        }
+    };
+    
+    window.hideContent = function(type) {
+        const contentId = type + '-content';
+        const content = document.getElementById(contentId);
+        const button = document.querySelector(`[onclick="toggleContent('${type}')"]`);
+        
+        content.style.display = 'none';
+        button.classList.remove('active');
+    };
+    </script>
+    
+    </body></html>
